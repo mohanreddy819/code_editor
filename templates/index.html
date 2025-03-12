@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Code Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css" />
+    <link rel="stylesheet" href="/static/index.css">
+  </head>
+  <body>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+        }
+        .CodeMirror {
+          height: 50vh;
+          width: 100%;
+        }
+        #editor-container {
+            width: 90%;
+            height: 500px;
+            margin: auto;
+            border: 3px solid #181717;
+        }
+        .CodeMirror { border: 3px solid black}
+        button {
+          margin-top: 10px;
+          background-color: #444;
+          color: #f0f0f0;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #666;
+        }
+        select {
+          margin-bottom: 10px;
+          padding: 5px;
+        }
+        #output, #debug-output {
+          margin-top: 10px;
+          padding: 10px;
+          background: #585858;
+          min-height: 50px;
+        }
+      </style>
+    <!-- <h2>Online Code Editor</h2> -->
+    <div class="navbar">
+      <div class="navbar-title">Online Code Edior</div>
+      <div class="navbar-links">
+          {% if 'user' in session %}
+              <span>Welcome, {{ session['user'] }}</span>
+              <a href="/">Back to Editor</a>
+              <a href="/logout" class="nav-link">Logout</a>
+          {% else %}
+              <a href="/login" class="nav-link">Login</a>
+          {% endif %}
+      </div>
+  </div>
+  <br>
+    <label>Select Language:</label>
+    <select id="language-selector">
+      <option value="python">Python</option>
+      <option value="javascript">JavaScript</option>
+    </select>
+    <textarea id="code-editor"></textarea>
+    <button onclick="runCode()">Run</button>
+    <button id="stop-btn" onclick="stopExecution()">Stop</button>
+    <button onclick="saveCode()">Save Code</button>
+    <a href="/snippets"><button>View Saved Snippets</button></a>
+v
+    <!-- {% if session['user'] %}
+    <p>Welcome, {{ session['user'] }}! <a href="/logout">Logout</a></p>
+{% else %}
+    <p><a href="/login">Login</a> or <a href="/signup">Signup</a></p>
+{% endif %} -->
+
+
+    <h3>Output / Debug Console</h3>
+    <div id="output"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+      function saveCode() {
+    const code = editor.getValue().trim();  // Trim ensures no empty values
+    const language = document.getElementById("language-selector").value;
+
+    if (!code) {
+        alert("Cannot save empty code!");
+        return;
+    }
+
+    fetch("/save_code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code, language })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Save response:", data);
+        alert(data.message);
+    })
+    .catch(error => {
+        console.error("Error saving code:", error);
+        alert("Error occurred while saving the code.");
+    });
+}
+    </script>
+
+  </body>
+</html>

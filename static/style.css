@@ -1,0 +1,76 @@
+/* General Page Styles */
+body {
+  font-family: Arial, sans-serif; /* Code-like font */
+  background: #1e1e1e; /* Dark editor background */
+  color: #ddd; /* Softer white text */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form Container */
+.container {
+  background: #252526; /* Dark gray editor-like box */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  width: 340px;
+  text-align: center;
+}
+
+/* Title */
+h2 {
+  margin-bottom: 20px;
+  color: #f8f8f2; /* Light grayish white */
+}
+
+/* Input Fields */
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #3c3c3c;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #333; /* Dark input background */
+  color: #ddd; /* Light text */
+  outline: none;
+}
+
+input:focus {
+  border-color: #007bff; /* Blue border on focus */
+}
+
+/* Buttons */
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Links */
+a {
+  display: block;
+  margin-top: 12px;
+  color: #61dafb; /* Soft blue */
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}

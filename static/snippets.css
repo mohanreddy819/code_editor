@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Page Title */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Snippets Container */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Individual Snippet Box */
+li {
+    background: #ffffff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Code Box */
+pre {
+    background: #272822;  /* Dark theme for code */
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: "Courier New", monospace;
+}
+
+/* Language Text */
+p {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Buttons */
+button {
+    background-color: black;
+    color:  white;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 14px;
+}
+
+button:hover {
+    background: grey;
+    color: white;
+}
+
+/* Back to Editor Link */
+/* a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+} */
+.back-to-editor {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #1e1e1e; /* Matching theme color */
+    color: solid whe;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.back-to-editor:hover {
+    transform: scale(1.05);
+    background-color: grey; /* Slightly darker blue on hover */
+}

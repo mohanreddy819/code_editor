@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Snippet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/loader.min.js"></script>
+    <style>
+        #editor-container {
+            width: 90%;
+            height: 500px;
+            margin: auto;
+            border: 3px solid #181717;
+        }
+        /* a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        background-color: #333
+        }
+
+        a:hover {
+        text-decoration: underline;
+        } */
+        button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        margin-right: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+    /* Navbar Styling */
+.navbar {
+    background: #1e1e1e;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links span {
+    margin-right: 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+.back-to-editor {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #1e1e1e; /* Matching theme color */
+    color: solid whe;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.back-to-editor:hover {
+    transform: scale(1.05);
+    background-color: grey; /* Slightly darker blue on hover */
+}
+    </style>
+    
+</head>
+<body>
+    <!-- <h2 style="text-align: center; background-color: #007bff; color: white; padding: 15px; margin: 0; font-size: 24px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Code Snippet</h2> -->
+    <div class="navbar">
+        <div class="navbar-title">Online Code Edior</div>
+        <div class="navbar-links">
+            {% if 'user' in session %}
+                <span>Welcome, {{ session['user'] }}</span>
+                <a href="/logout" class="nav-link">Logout</a>
+            {% else %}
+                <a href="/login" class="nav-link">Login</a>
+            {% endif %}
+        </div>
+        </div>
+    <br>
+    <a href="/" class="back-to-editor">Back to Editor</a>
+    <br> <br>
+    <div id="editor-container"></div>
+    <br>
+    
+
+    <script>
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            monaco.editor.create(document.getElementById('editor-container'), {
+                value: `{{ code|safe }}`,
+                language: "{{ language }}",
+                theme: "default",
+                readOnly: true
+            });
+        });
+    </script>
+</body>
+</html>

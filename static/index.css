@@ -1,0 +1,73 @@
+/* Navbar Styling */
+.navbar {
+    background: #1e1e1e;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links span {
+    margin-right: 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* Title Styling */
+.snippet-title {
+    text-align: center;
+}
+/* Style for the language selector */
+#language-selector {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Style when hovering over the select box */
+#language-selector:hover {
+    border-color: #555;
+}
+
+/* Style when the dropdown is focused */
+#language-selector:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for the options */
+#language-selector option {
+    font-size: 14px;
+    background: white;
+    color: #333;
+}
+.navbar-links a, 
+.navbar-links span {
+    transition: transform 0.2s ease-in-out;
+}
+
+.navbar-links a:hover, 
+.navbar-links span:hover {
+    transform: scale(1.1);
+}
