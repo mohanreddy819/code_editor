@@ -6,90 +6,127 @@
     <title>View Snippet</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/loader.min.js"></script>
     <style>
-        #editor-container {
+        /* ======= Ayu Dark Theme Styling ======= */
+        body {
+            font-family: "Fira Code", monospace;
+            background-color: #0f1419; /* Ayu Dark Background */
+            color: #e6e1cf; /* Soft Ayu White */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* ======= Navbar ======= */
+        .navbar {
+            background: #1f2430; /* Ayu Dark Gray */
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .navbar-title {
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+
+        .navbar-links a:hover {
+            transform: scale(1.1);
+            color: #ffcc66; /* Ayu Gold */
+        }
+
+        /* ======= Layout ======= */
+        .main-content {
+            padding-top: 60px; /* Push below navbar */
             width: 90%;
-            height: 500px;
+            max-width: 1000px;
             margin: auto;
+            /* text-align: center; */
+        }
+
+        /* ======= Back to Editor Button ======= */
+        .back-to-editor {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #1f2430;
+            color: #ffcc66;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .back-to-editor:hover {
+            transform: scale(1.05);
+            background-color: #2a2e37;
+        }
+
+        /* ======= Editor Container ======= */
+        #editor-container {
+            width: 100%;
+            height: 500px;
             border: 3px solid #181717;
-        }
-        /* a {
-        display: inline-block;
-        margin-top: 20px;
-        text-decoration: none;
-        color: #007bff;
-        font-weight: bold;
-        background-color: #333
+            border-radius: 8px;
+            margin-top: 20px;
+            background: #272822; /* Ayu Dark Code Background */
         }
 
-        a:hover {
-        text-decoration: underline;
-        } */
+        /* ======= Buttons ======= */
+        .button-group {
+            margin-top: 20px;
+        }
+
         button {
-        background: #007bff;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        margin-right: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        font-size: 14px;
-    }
+            background: #ffcc66;
+            color: #1e1e1e;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s;
+        }
 
-    button:hover {
-        background: #0056b3;
-    }
-    /* Navbar Styling */
-.navbar {
-    background: #1e1e1e;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        button:hover {
+            background: #e6b450;
+            transform: scale(1.05);
+        }
 
-.navbar-title {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.navbar-links {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-links span {
-    margin-right: 15px;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-}
-.back-to-editor {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #1e1e1e; /* Matching theme color */
-    color: solid whe;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-.back-to-editor:hover {
-    transform: scale(1.05);
-    background-color: grey; /* Slightly darker blue on hover */
-}
     </style>
-    
 </head>
 <body>
-    <!-- <h2 style="text-align: center; background-color: #007bff; color: white; padding: 15px; margin: 0; font-size: 24px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Code Snippet</h2> -->
+
+    <!-- Navbar -->
     <div class="navbar">
-        <div class="navbar-title">Online Code Edior</div>
+        <div class="navbar-title">Online Code Editor</div>
         <div class="navbar-links">
             {% if 'user' in session %}
                 <span>Welcome, {{ session['user'] }}</span>
@@ -98,24 +135,44 @@
                 <a href="/login" class="nav-link">Login</a>
             {% endif %}
         </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <a href="/" class="back-to-editor">Back to Editor</a>
+
+        <div id="editor-container"></div>
+
+        <!-- Button Group -->
+        <div class="button-group">
+            <button onclick="copyToClipboard()">Copy Code</button>
         </div>
-    <br>
-    <a href="/" class="back-to-editor">Back to Editor</a>
-    <br> <br>
-    <div id="editor-container"></div>
-    <br>
-    
+    </div>
 
     <script>
+        // Monaco Editor Setup
         require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs' }});
+        let editor;
+
         require(['vs/editor/editor.main'], function() {
-            monaco.editor.create(document.getElementById('editor-container'), {
+            editor = monaco.editor.create(document.getElementById('editor-container'), {
                 value: `{{ code|safe }}`,
                 language: "{{ language }}",
-                theme: "default",
+                theme: "vs-dark",
                 readOnly: true
             });
         });
+
+        // Copy Code to Clipboard
+        function copyToClipboard() {
+            const code = editor.getValue();
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Code copied to clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
     </script>
+
 </body>
 </html>

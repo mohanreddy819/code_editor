@@ -2,7 +2,7 @@
 const editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
     lineNumbers: true,
     mode: "python",  // Default mode
-    theme: "default",
+    theme: "ayu-dark",
 });
 
 // Function to update mode when language changes

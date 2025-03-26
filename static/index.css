@@ -1,15 +1,28 @@
-/* Navbar Styling */
+/* ======= General Styling ======= */
+body {
+    font-family: "Fira Code", monospace;
+    background-color: #0f1419; /* Darker background for better contrast */
+    color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ======= Navbar Styling ======= */
 .navbar {
     background: #1e1e1e;
     color: white;
-    padding: 10px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -26,48 +39,122 @@
     color: white;
     text-decoration: none;
     margin-left: 15px;
+    font-weight: 500;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-/* Title Styling */
-.snippet-title {
-    text-align: center;
+.navbar-links a:hover {
+    transform: scale(1.1);
+    color: #ffcc66; /* Ayu Gold */
 }
-/* Style for the language selector */
+
+.navbar-links span {
+    transition: transform 0.2s ease-in-out;
+}
+
+.navbar-links span:hover {
+    transform: scale(1.1);
+}
+
+/* ======= CodeMirror Line Number & Cursor Styling ======= */
+.CodeMirror-linenumber {
+    color: #777; /* Subtle line numbers */
+}
+
+.CodeMirror-cursor {
+    border-left: 2px solid #ffcc66 !important; /* Gold cursor */
+}
+
+/* ======= Buttons Styling ======= */
+/* Make sure <a> elements behave like inline elements */
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Ensure buttons inside <a> are inline */
+a button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #1e1e1e;
+    color: #ffcc66;
+    border: 2px solid #ffcc66;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Hover effect */
+a button:hover {
+    background-color: #2a2e37;
+    transform: scale(1.05);
+}
+
+/* Click effect */
+a button:active {
+    background-color: #3a3f4b;
+}
+
+/* Ensure all buttons stay in one line */
+.button-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Ensures they wrap only if needed */
+    align-items: center;
+}
+
+/* ======= Language Selector ======= */
 #language-selector {
     padding: 8px 12px;
     font-size: 16px;
-    border: 2px solid #333;
+    border: 2px solid #323842;
     border-radius: 5px;
-    background-color: white;
-    color: #333;
+    background-color: #1e1e1e;
+    color: #ffcc66;
     cursor: pointer;
     outline: none;
     transition: 0.3s;
 }
 
-/* Style when hovering over the select box */
 #language-selector:hover {
-    border-color: #555;
+    border-color: #ffcc66;
 }
 
-/* Style when the dropdown is focused */
 #language-selector:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #ffcc66;
+    box-shadow: 0 0 5px rgba(255, 204, 102, 0.5);
 }
 
-/* Style for the options */
 #language-selector option {
     font-size: 14px;
-    background: white;
-    color: #333;
-}
-.navbar-links a, 
-.navbar-links span {
-    transition: transform 0.2s ease-in-out;
+    background: #1e1e1e;
+    color: white;
 }
 
-.navbar-links a:hover, 
-.navbar-links span:hover {
-    transform: scale(1.1);
+#output, #debug-output {
+    margin-top: 15px;
+    padding: 15px;
+    background: #1f2430; /* Dark Ayu Theme */
+    color: #d9d7ce !important; /* Ensure text color overrides */
+    min-height: 60px;
+    border-radius: 5px;
+    font-family: "Fira Code", monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    border-left: 5px solid #ffcc66; /* Ayu Gold Left Border */
+}
+
+/* Force all text inside output to be readable */
+#output * {
+    color: #d9d7ce !important; /* Forces proper text color */
+    font-family: "Fira Code", monospace;
+}
+
+/* Handle CodeMirror styling if injected */
+#output pre, #output code {
+    color: #d9d7ce !important;
+    background: none !important;
 }

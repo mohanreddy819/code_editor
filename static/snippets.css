@@ -1,95 +1,154 @@
-/* General Styles */
+/* ======================= */
+/* ======= GLOBAL ======== */
+/* ======================= */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Fira Code", monospace;
+    background-color: #0f1419; /* Ayu Dark Background */
+    color: #e6e1cf; /* Soft Ayu White */
     margin: 0;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Page Title */
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Snippets Container */
-ul {
-    list-style-type: none;
     padding: 0;
-    max-width: 800px;
-    margin: auto;
+    display: flex;
+    flex-direction: column; /* Ensures proper stacking */
+    align-items: flex-start; /* Aligns content to the left */
+    min-height: 100vh;
 }
 
-/* Individual Snippet Box */
-li {
-    background: #ffffff;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
+/* ======================= */
+/* ======== NAVBAR ======= */
+/* ======================= */
 
-/* Code Box */
-pre {
-    background: #272822;  /* Dark theme for code */
-    color: #f8f8f2;
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-    font-family: "Courier New", monospace;
-}
-
-/* Language Text */
-p {
-    color: #666;
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-/* Buttons */
-button {
-    background-color: black;
-    color:  white;
-    border: none;
-    padding: 8px 12px;
-    margin-right: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-size: 14px;
-}
-
-button:hover {
-    background: grey;
+.navbar {
+    background: #1f2430; /* Ayu Dark Gray */
     color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed; /* Keeps navbar on top */
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    box-sizing: border-box; /* Prevents overflow */
 }
 
-/* Back to Editor Link */
-/* a {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #007bff;
+/* Navbar Title */
+.navbar-title {
+    font-size: 22px;
     font-weight: bold;
+    white-space: nowrap; /* Prevents text from wrapping */
 }
 
-a:hover {
-    text-decoration: underline;
-} */
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-links span {
+    margin-right: 10px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+    transform: scale(1.1);
+    color: #ffcc66; /* Ayu Gold */
+}
+
+/* ======================= */
+/* ======== LAYOUT ======= */
+/* ======================= */
+
+/* Adds padding so content does not hide under the fixed navbar */
+.main-content {
+    padding-top: 60px; /* Push content below navbar */
+    padding-left: 20px;
+}
+
+/* ======================= */
+/* === BACK TO EDITOR === */
+/* ======================= */
+
 .back-to-editor {
     display: inline-block;
-    padding: 8px 15px;
-    background-color: #1e1e1e; /* Matching theme color */
-    color: solid whe;
+    padding: 10px 15px;
+    background-color: #1f2430; /* Matching Ayu Theme */
+    color: #ffcc66; /* Ayu Gold */
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    margin: 10px 0 20px 20px; /* Proper spacing */
 }
 
 .back-to-editor:hover {
     transform: scale(1.05);
-    background-color: grey; /* Slightly darker blue on hover */
+    background-color: #2a2e37; /* Slightly Darker Gray */
+}
+
+/* ======================= */
+/* ===== SNIPPETS ======== */
+/* ======================= */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Snippet Box */
+li {
+    background: #232834; /* Slightly lighter than the container */
+    padding: 15px;
+    margin: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Code Box */
+pre {
+    background: #272822; /* Dark Theme for Code */
+    color: #ffcc66; /* Ayu Gold */
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: "Fira Code", monospace;
+}
+
+/* Language Label */
+p {
+    color: #ffd580;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ======================= */
+/* ===== BUTTONS ======== */
+/* ======================= */
+
+button {
+    background-color: #ffcc66; /* Ayu Gold */
+    color: #1e1e1e; /* Dark Contrast */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: #e6b450; /* Slightly Darker Gold */
+    transform: scale(1.05);
 }

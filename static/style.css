@@ -1,8 +1,8 @@
-/* General Page Styles */
+/* ======= General Page Styles ======= */
 body {
-  font-family: Arial, sans-serif; /* Code-like font */
-  background: #1e1e1e; /* Dark editor background */
-  color: #ddd; /* Softer white text */
+  font-family: "Fira Code", monospace;
+  background: #0f1419; /* Darker Ayu background */
+  color: #e6e1cf; /* Softer Ayu white */
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,9 +11,9 @@ body {
   height: 100vh;
 }
 
-/* Form Container */
+/* ======= Form Container ======= */
 .container {
-  background: #252526; /* Dark gray editor-like box */
+  background: #1f2430; /* Dark Ayu gray */
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
@@ -21,33 +21,34 @@ body {
   text-align: center;
 }
 
-/* Title */
+/* ======= Title ======= */
 h2 {
   margin-bottom: 20px;
-  color: #f8f8f2; /* Light grayish white */
+  color: #ffd580; /* Ayu gold */
 }
 
-/* Input Fields */
+/* ======= Input Fields ======= */
 input {
   width: 90%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #3c3c3c;
+  border: 1px solid #3c3f4a; /* Ayu dark border */
   border-radius: 5px;
   font-size: 16px;
-  background: #333; /* Dark input background */
-  color: #ddd; /* Light text */
+  background: #2a2e38; /* Darker input background */
+  color: #e6e1cf; /* Light text */
   outline: none;
 }
 
 input:focus {
-  border-color: #007bff; /* Blue border on focus */
+  border-color: #ffcc66; /* Ayu gold */
+  box-shadow: 0 0 5px rgba(255, 204, 102, 0.5);
 }
 
-/* Buttons */
+/* ======= Buttons ======= */
 button {
-  background: #007bff;
-  color: white;
+  background: #ffcc66; /* Ayu gold */
+  color: #1e1e1e; /* Dark contrast text */
   border: none;
   padding: 10px;
   width: 100%;
@@ -55,18 +56,23 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #e6b450; /* Slightly darker gold */
+  transform: scale(1.05);
 }
 
-/* Links */
+button:active {
+  background: #d9a543;
+}
+
+/* ======= Links ======= */
 a {
   display: block;
   margin-top: 12px;
-  color: #61dafb; /* Soft blue */
+  color: #73d0ff; /* Soft Ayu blue */
   text-decoration: none;
   font-size: 14px;
 }
