@@ -70,7 +70,7 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script>
       function saveCode() {
-    const code = editor.getValue().trim();  // Trim ensures no empty values
+    const code = editor.getValue().trim();  
     const language = document.getElementById("language-selector").value;
 
     if (!code) {

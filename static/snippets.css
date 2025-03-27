@@ -1,47 +1,47 @@
-/* ======================= */
-/* ======= GLOBAL ======== */
-/* ======================= */
+
+
+
 
 body {
     font-family: "Fira Code", monospace;
-    background-color: #0f1419; /* Ayu Dark Background */
-    color: #e6e1cf; /* Soft Ayu White */
+    background-color: #0f1419;
+    color: #e6e1cf;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Ensures proper stacking */
-    align-items: flex-start; /* Aligns content to the left */
+    flex-direction: column;
+    align-items: flex-start;
     min-height: 100vh;
 }
 
-/* ======================= */
-/* ======== NAVBAR ======= */
-/* ======================= */
+
+
+
 
 .navbar {
-    background: #1f2430; /* Ayu Dark Gray */
+    background: #1f2430;
     color: white;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: fixed; /* Keeps navbar on top */
+    position: fixed;
     top: 0;
     left: 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    box-sizing: border-box; /* Prevents overflow */
+    box-sizing: border-box;
 }
 
-/* Navbar Title */
+
 .navbar-title {
     font-size: 22px;
     font-weight: bold;
-    white-space: nowrap; /* Prevents text from wrapping */
+    white-space: nowrap;
 }
 
-/* Navbar Links */
+
 .navbar-links {
     display: flex;
     align-items: center;
@@ -61,43 +61,43 @@ body {
 
 .navbar-links a:hover {
     transform: scale(1.1);
-    color: #ffcc66; /* Ayu Gold */
+    color: #ffcc66;
 }
 
-/* ======================= */
-/* ======== LAYOUT ======= */
-/* ======================= */
 
-/* Adds padding so content does not hide under the fixed navbar */
+
+
+
+
 .main-content {
-    padding-top: 60px; /* Push content below navbar */
+    padding-top: 60px;
     padding-left: 20px;
 }
 
-/* ======================= */
-/* === BACK TO EDITOR === */
-/* ======================= */
+
+
+
 
 .back-to-editor {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #1f2430; /* Matching Ayu Theme */
-    color: #ffcc66; /* Ayu Gold */
+    background-color: #1f2430;
+    color: #ffcc66;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    margin: 10px 0 20px 20px; /* Proper spacing */
+    margin: 10px 0 20px 20px;
 }
 
 .back-to-editor:hover {
     transform: scale(1.05);
-    background-color: #2a2e37; /* Slightly Darker Gray */
+    background-color: #2a2e37;
 }
 
-/* ======================= */
-/* ===== SNIPPETS ======== */
-/* ======================= */
+
+
+
 
 ul {
     list-style: none;
@@ -105,39 +105,39 @@ ul {
     margin-top: 20px;
 }
 
-/* Snippet Box */
+
 li {
-    background: #232834; /* Slightly lighter than the container */
+    background: #232834;
     padding: 15px;
     margin: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Code Box */
+
 pre {
-    background: #272822; /* Dark Theme for Code */
-    color: #ffcc66; /* Ayu Gold */
+    background: #272822;
+    color: #ffcc66;
     padding: 12px;
     border-radius: 6px;
     overflow-x: auto;
     font-family: "Fira Code", monospace;
 }
 
-/* Language Label */
+
 p {
     color: #ffd580;
     font-size: 14px;
     margin-top: 5px;
 }
 
-/* ======================= */
-/* ===== BUTTONS ======== */
-/* ======================= */
+
+
+
 
 button {
-    background-color: #ffcc66; /* Ayu Gold */
-    color: #1e1e1e; /* Dark Contrast */
+    background-color: #ffcc66;
+    color: #1e1e1e;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -149,6 +149,6 @@ button {
 }
 
 button:hover {
-    background: #e6b450; /* Slightly Darker Gold */
+    background: #e6b450;
     transform: scale(1.05);
 }

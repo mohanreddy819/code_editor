@@ -1,7 +1,7 @@
-/* ======= General Styling ======= */
+
 body {
     font-family: "Fira Code", monospace;
-    background-color: #0f1419; /* Darker background for better contrast */
+    background-color: #0f1419;
     color: white;
     margin: 0;
     padding: 20px;
@@ -9,7 +9,7 @@ body {
     flex-direction: column;
 }
 
-/* ======= Navbar Styling ======= */
+
 .navbar {
     background: #1e1e1e;
     color: white;
@@ -45,7 +45,7 @@ body {
 
 .navbar-links a:hover {
     transform: scale(1.1);
-    color: #ffcc66; /* Ayu Gold */
+    color: #ffcc66;
 }
 
 .navbar-links span {
@@ -56,23 +56,23 @@ body {
     transform: scale(1.1);
 }
 
-/* ======= CodeMirror Line Number & Cursor Styling ======= */
+
 .CodeMirror-linenumber {
-    color: #777; /* Subtle line numbers */
+    color: #777;
 }
 
 .CodeMirror-cursor {
-    border-left: 2px solid #ffcc66 !important; /* Gold cursor */
+    border-left: 2px solid #ffcc66 !important;
 }
 
-/* ======= Buttons Styling ======= */
-/* Make sure <a> elements behave like inline elements */
+
+
 a {
     display: inline-block;
     text-decoration: none;
 }
 
-/* Ensure buttons inside <a> are inline */
+
 a button {
     display: inline-block;
     margin: 5px;
@@ -84,29 +84,29 @@ a button {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease-in-out;
-    white-space: nowrap; /* Prevents wrapping */
+    white-space: nowrap;
 }
 
-/* Hover effect */
+
 a button:hover {
     background-color: #2a2e37;
     transform: scale(1.05);
 }
 
-/* Click effect */
+
 a button:active {
     background-color: #3a3f4b;
 }
 
-/* Ensure all buttons stay in one line */
+
 .button-container {
     display: flex;
     gap: 10px;
-    flex-wrap: wrap; /* Ensures they wrap only if needed */
+    flex-wrap: wrap;
     align-items: center;
 }
 
-/* ======= Language Selector ======= */
+
 #language-selector {
     padding: 8px 12px;
     font-size: 16px;
@@ -137,23 +137,23 @@ a button:active {
 #output, #debug-output {
     margin-top: 15px;
     padding: 15px;
-    background: #1f2430; /* Dark Ayu Theme */
-    color: #d9d7ce !important; /* Ensure text color overrides */
+    background: #1f2430;
+    color: #d9d7ce !important;
     min-height: 60px;
     border-radius: 5px;
     font-family: "Fira Code", monospace;
     white-space: pre-wrap;
     overflow-x: auto;
-    border-left: 5px solid #ffcc66; /* Ayu Gold Left Border */
+    border-left: 5px solid #ffcc66;
 }
 
-/* Force all text inside output to be readable */
+
 #output * {
-    color: #d9d7ce !important; /* Forces proper text color */
+    color: #d9d7ce !important;
     font-family: "Fira Code", monospace;
 }
 
-/* Handle CodeMirror styling if injected */
+
 #output pre, #output code {
     color: #d9d7ce !important;
     background: none !important;

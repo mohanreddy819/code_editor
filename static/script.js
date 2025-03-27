@@ -1,37 +1,37 @@
-// Initialize CodeMirror
+
 const editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
     lineNumbers: true,
-    mode: "python",  // Default mode
+    mode: "python",  
     theme: "ayu-dark",
 });
 
-// Function to update mode when language changes
+
 document.getElementById("language-selector").addEventListener("change", function () {
     const selectedLanguage = this.value;
     editor.setOption("mode", selectedLanguage);
 });
 
-// Function to run code
+
 function runCode() {
     const code = editor.getValue();
     console.log("code before sending: ", code)
     const language = document.getElementById("language-selector").value;
     const outputDiv = document.getElementById("output");
 
-    outputDiv.innerHTML = "";  // Clear previous output
-    outputDiv.style.color = "black"; // Reset color to black
+    outputDiv.innerHTML = "";  
+    outputDiv.style.color = "black"; 
 
     if (language === "javascript") {
         try {
-            // Wrap code in a function for better error handling
+            
             const result = new Function(code)();
             outputDiv.innerHTML = `<pre>${result !== undefined ? result : "Code executed successfully"}</pre>`;
         } catch (error) {
             outputDiv.innerHTML = `<pre>Error: ${error.message}</pre>`;
-            outputDiv.style.color = "red"; // Change text to red if error occurs
+            outputDiv.style.color = "red"; 
         }
     } else {
-        // Send Python code to backend
+        
         fetch("/runcode", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
